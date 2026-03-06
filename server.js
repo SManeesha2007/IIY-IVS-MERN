@@ -1,17 +1,10 @@
-var express=require("express");
-var app = express();
-app.get("/",function(req,res){
-    res.send("welcome to express");
-})
-app.post("/admin",function(req,res){
-    res.send("welcome to admin page");
-})
-app.put("/admin/:id",function(req,res){
-    const id=req.params.id;
-    res.send("data updated"+id);
-})
-app.delete("/delete",function(req,res){
-    res.send("data deleted");
-})
-app.listen(4000);
-console.log("server is running");
+const http=require('http');           //importing http
+const server=http.createServer(       //creating an server
+    function (req,res){
+    res.writeHead(200,{'content-Type':'text/plain'});
+    res.write("hello node.js web server is working");
+    res.end();
+}
+);
+server.listen(3000);
+console.log("Server running at http://localhost:3000");
